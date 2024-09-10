@@ -1,0 +1,132 @@
+Vamos a revisar y corregir cada uno de los tres programas uno por uno. Te daré explicaciones sobre las correcciones y cómo mejorar el código.
+
+---
+
+### **Ejercicio 1: Contar caracteres, palabras y líneas**
+
+Tu código tiene algunas inconsistencias en la forma en que cuentas los caracteres, palabras y líneas. Además, hay un problema en el cálculo de los caracteres cuando restas el número de espacios. Aquí está la versión corregida:
+
+```c
+#include <stdio.h>
+
+void procedure_1() {
+    int c, caracteres = 0, palabras = 0, lineas = 0;
+    int en_palabra = 0;  // Para detectar si estamos dentro de una palabra
+
+    printf("Ingresa texto (El programa terminará cuando escribas CTRL+D (^D) y luego presiones ENTER): \n");
+
+    while ((c = getchar()) != EOF) {
+        caracteres++;
+
+        // Contamos líneas cuando encontramos un salto de línea
+        if (c == '\n') {
+            lineas++;
+        }
+
+        // Detectamos si estamos en una palabra
+        if (c == ' ' || c == '\n' || c == '\t') {
+            en_palabra = 0;  // Ya no estamos en una palabra
+        } else if (!en_palabra) {
+            en_palabra = 1;  // Encontramos el inicio de una nueva palabra
+            palabras++;
+        }
+    }
+
+    printf("Resultados:\n");
+    printf("Caracteres: %d\n", caracteres);
+    printf("Palabras: %d\n", palabras);
+    printf("Líneas: %d\n", lineas);
+}
+
+int main() {
+    printf("Inicio de procedimiento 01\n");
+    procedure_1();
+
+    return 0;
+}
+```
+
+### **Correcciones clave:**
+1. **Detección de palabras**: Ahora el programa detecta palabras contando cada transición de un carácter que no es un espacio a uno que lo es.
+2. **Suma de líneas**: Cada vez que encuentra un salto de línea (`'\n'`), cuenta correctamente la línea.
+3. **Manejo de EOF**: Cuando se ingresa `CTRL+D`, el programa termina correctamente.
+
+---
+
+### **Ejercicio 2: Convertir entrada a mayúsculas**
+
+En este ejercicio, tu código tiene un pequeño problema con la forma en que almacenas y procesas los caracteres. `xddd[70]` es un solo carácter, lo que puede causar desbordamiento en la memoria. A continuación te muestro una versión corregida:
+
+```c
+#include <stdio.h>
+#include <ctype.h>  // Para usar la función toupper()
+
+void procedure_02(){
+    printf("Ingresa texto (presiona Ctrl+D para terminar): \n");
+    int caracter;
+
+    while((caracter = getchar()) != EOF) {
+        if(caracter >= 'a' && caracter <= 'z') {
+            caracter = toupper(caracter);  // Usamos la función toupper para convertir a mayúscula
+        }
+        putchar(caracter);  // Imprimimos el carácter convertido o no
+    }
+
+    printf("\n");
+}
+
+int main(){
+    printf("Inicio de procedimiento 02\n");
+    procedure_02();
+    return 0;
+}
+```
+
+### **Correcciones clave:**
+1. **Uso de `toupper()`**: Utilizamos la función `toupper()` de la librería `ctype.h` para simplificar la conversión de minúsculas a mayúsculas.
+2. **Eliminación de la cadena `xddd[]`**: No era necesario almacenar los caracteres en un array, ya que podemos procesarlos y mostrarlos directamente usando `putchar()`.
+3. **Simplicidad**: El código ahora es más compacto y eficiente.
+
+---
+
+### **Ejercicio 3: Eliminar espacios y tabulaciones extra**
+
+Tu código original no elimina correctamente los espacios múltiples consecutivos ni las tabulaciones. A continuación te muestro la versión corregida:
+
+```c
+#include <stdio.h>
+
+void procedure_03(){
+    printf("Ingresa texto (presiona Ctrl+D para terminar): \n");
+    int caracter, ultimo_caracter = 0;  // Variable para almacenar el último carácter leído
+
+    while ((caracter = getchar()) != EOF) {
+        if (caracter == ' ' || caracter == '\t') {
+            // Solo imprimimos un espacio si el último carácter no era un espacio o tabulación
+            if (ultimo_caracter != ' ' && ultimo_caracter != '\t') {
+                putchar(' ');
+            }
+        } else {
+            putchar(caracter);  // Imprimimos cualquier otro carácter
+        }
+        ultimo_caracter = caracter;  // Actualizamos el último carácter leído
+    }
+
+    printf("\n");
+}
+
+int main(){
+    printf("Inicio de procedimiento 03\n");
+    procedure_03();
+    return 0;
+}
+```
+
+### **Correcciones clave:**
+1. **Condición para imprimir espacios**: Ahora se imprime un solo espacio cuando hay varios consecutivos.
+2. **Eliminación de tabulaciones**: Las tabulaciones (`'\t'`) son convertidas a un solo espacio.
+3. **Simplicidad**: No necesitas almacenar los caracteres en un array, ya que `putchar()` puede manejar directamente la salida.
+
+---
+
+Con estas correcciones, los programas funcionarán de manera más eficiente y sin errores. ¡Espero que te resulten útiles! Si tienes más preguntas o necesitas más explicaciones, no dudes en preguntar.

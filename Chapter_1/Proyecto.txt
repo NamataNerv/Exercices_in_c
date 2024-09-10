@@ -1,0 +1,26 @@
+Dado que estás leyendo el libro de C de K&R y estás en el primer capítulo, te sugiero un proyecto interesante y algo grande para poner en práctica los conceptos que estás aprendiendo. Aquí tienes una idea:
+
+### Proyecto: **Calculadora Científica en Línea de Comandos**
+
+#### Descripción:
+Desarrolla una calculadora científica en C que permita a los usuarios realizar diversas operaciones matemáticas, desde las más básicas (suma, resta, multiplicación, división) hasta operaciones más avanzadas como trigonometría, potencias, raíces, logaritmos, etc.
+
+#### Características del Proyecto:
+1. **Menú de opciones**: El programa debe mostrar un menú interactivo donde el usuario puede seleccionar la operación que desea realizar.
+2. **Operaciones básicas**:
+   - Suma, resta, multiplicación, división.
+3. **Operaciones científicas**:
+   - Funciones trigonométricas (seno, coseno, tangente).
+   - Logaritmos (naturales y en base 10).
+   - Potencias y raíces cuadradas.
+4. **Soporte para decimales**: El programa debe aceptar números flotantes como entrada y mostrar resultados con precisión.
+5. **Historial de operaciones**: Almacena las operaciones realizadas durante la sesión actual y permite al usuario ver un historial.
+6. **Validación de entrada**: Asegúrate de que el programa pueda manejar entradas no válidas (como dividir por cero) con mensajes de error adecuados.
+7. **Interfaz en consola mejorada**: Utiliza códigos de color en la consola para hacer la interacción más atractiva (como resaltado de errores en rojo o resultados en verde).
+8. **Uso de funciones**: Organiza el código en diferentes funciones, cada una para las distintas operaciones, y utiliza variables adecuadas (enteros, flotantes, etc.).
+
+#### Extensiones Avanzadas:
+- **Soporte para expresiones complejas**: Permite que el usuario ingrese expresiones matemáticas complejas como `(3 + 5) * 2 / (sin(30))` y evalúa la expresión completa.
+- **Manejo de archivos**: Guarda el historial de operaciones en un archivo de texto y permite al usuario cargar el historial en futuras sesiones.
+
+Este proyecto es bastante completo y te permitirá reforzar tus habilidades con las variables, las funciones, el control de flujo y la interacción con el usuario, todo mientras aplicas conceptos fundamentales de C que estás aprendiendo.

@@ -1,0 +1,78 @@
+Claro, aquí tienes tres ejercicios que te ayudarán a practicar y comprender mejor el uso de getchar() en C:
+
+##################################################################################################################################
+Ejercicio 1: Contar caracteres, palabras y líneas
+Descripción:
+
+Escribe un programa en C que lea caracteres de la entrada estándar utilizando getchar() y cuente el número de caracteres, palabras y líneas ingresadas. El programa debe terminar cuando se detecte el fin de la entrada (EOF). Al final, el programa debe imprimir los totales de cada uno.
+
+Pistas:
+
+Caracteres: Cada vez que lees un carácter con getchar(), incrementas un contador de caracteres.
+Líneas: Incrementa un contador cada vez que encuentres un carácter de nueva línea ('\n').
+Palabras: Considera que una palabra es una secuencia de caracteres que no incluye espacios en blanco (espacios, tabulaciones o nuevas líneas). Puedes usar una variable de estado para determinar si estás dentro o fuera de una palabra.
+Detección de EOF: En sistemas Unix/Linux, puedes simular EOF con Ctrl+D; en Windows, con Ctrl+Z.
+
+
+Ejemplo de ejecución:
+
+@@@@@@@@@@@@@@@@@@@@@
+Copiar código
+Ingresa texto (presiona Ctrl+D para terminar):
+Hola, este es un texto de ejemplo.
+Contiene varias líneas
+y palabras.
+
+Resultados:
+Caracteres: 61
+Palabras: 10
+Líneas: 3
+@@@@@@@@@@@@@@@@@@@@@
+
+##################################################################################################################################
+
+Ejercicio 2: Convertir entrada a mayúsculas
+Descripción:
+
+Crea un programa que lea caracteres de la entrada estándar con getchar() y convierta todas las letras minúsculas a mayúsculas, mostrando el resultado en la salida estándar. El programa debe continuar procesando hasta que se encuentre EOF.
+
+Pistas:
+
+Conversión manual: Utiliza la tabla ASCII; si un carácter está entre 'a' y 'z', conviértelo restando 32 para obtener la letra mayúscula equivalente.
+Uso de <ctype.h>: Incluye este encabezado y utiliza la función toupper(c) para convertir caracteres a mayúsculas.
+Mantén los demás caracteres: No modifiques caracteres que no sean letras minúsculas (números, signos de puntuación, espacios, etc.).
+Ejemplo de ejecución:
+
+@@@@@@@@@@@@@@@@@@@@@
+Copiar código
+Ingresa texto (presiona Ctrl+D para terminar):
+¡Hola Mundo!
+Resultado:
+¡HOLA MUNDO!
+@@@@@@@@@@@@@@@@@@@@@
+
+
+
+##################################################################################################################################
+
+Ejercicio 3: Eliminar espacios y tabulaciones extra
+Descripción:
+
+Escribe un programa que lea caracteres utilizando getchar() y copie su entrada a la salida, reemplazando cada cadena de uno o más espacios o tabulaciones consecutivos por un solo espacio. Esto significa que si el programa encuentra varios espacios seguidos, solo debe imprimir uno.
+
+Pistas:
+
+Estado previo: Mantén una variable que indique si el carácter anterior era un espacio o una tabulación.
+Condición para imprimir: Solo imprime un espacio si el carácter actual es un espacio o tabulación y el anterior no lo era.
+Caracteres de espacio en blanco: Considera los espacios ' ' y las tabulaciones '\t'.
+Ejemplo de ejecución:
+
+@@@@@@@@@@@@@@@@@@@@@
+Copiar código
+Ingresa texto (presiona Ctrl+D para terminar):
+Este    es    un    texto    con     muchos    espacios.
+Resultado:
+Este es un texto con muchos espacios.
+@@@@@@@@@@@@@@@@@@@@@
+
+¡Espero que estos ejercicios te ayuden a entender mejor cómo funciona getchar()! Si tienes alguna pregunta o necesitas ayuda con alguno de ellos, no dudes en preguntar.

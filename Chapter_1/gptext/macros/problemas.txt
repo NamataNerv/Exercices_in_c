@@ -1,0 +1,26 @@
+Aquí tienes dos ejercicios basados en el uso de macros en C para que puedas practicar:
+
+### Ejercicio 1: Macro para calcular el volumen de una esfera
+Escribe una macro llamada `VOLUMEN_ESFERA` que tome como argumento el radio de una esfera y calcule su volumen utilizando la fórmula:
+
+\[
+V = \frac{4}{3} \times \pi \times r^3
+\]
+
+Tu programa debe pedir al usuario que ingrese el radio de la esfera y luego mostrar el volumen calculado utilizando la macro.
+
+### Ejemplo de ejecución:
+```
+Ingrese el radio de la esfera: 5
+El volumen de la esfera con radio 5.00 es: 523.60
+```
+
+### Ejercicio 2: Macro para encontrar el máximo entre dos números
+Crea una macro llamada `MAXIMO` que reciba dos números y devuelva el mayor de ellos. Utiliza esta macro para comparar dos números ingresados por el usuario y mostrar cuál es el mayor.
+
+### Ejemplo de ejecución:
+```
+Ingrese el primer número: 15
+Ingrese el segundo número: 20
+El mayor número es: 20
+```

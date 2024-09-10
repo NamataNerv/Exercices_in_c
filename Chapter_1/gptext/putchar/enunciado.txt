@@ -1,0 +1,111 @@
+Aquí tienes dos ejercicios con `putchar()` que te ayudarán a entender mejor su funcionamiento.
+
+### **Ejercicio 1: Imprimir una pirámide de asteriscos**
+En este ejercicio, utilizarás `putchar()` para imprimir una pirámide de asteriscos basada en la cantidad de filas que el usuario ingrese.
+
+#### **Instrucciones:**
+1. Pide al usuario que ingrese el número de filas para la pirámide.
+2. Utiliza `putchar()` para imprimir la pirámide fila por fila, alineada en el centro.
+
+#### **Código de ejemplo:**
+
+```c
+#include <stdio.h>
+
+void imprimir_piramide(int filas) {
+    for (int i = 1; i <= filas; i++) {
+        // Imprimir espacios antes de los asteriscos
+        for (int j = 0; j < filas - i; j++) {
+            putchar(' ');
+        }
+        // Imprimir asteriscos
+        for (int k = 0; k < (2 * i - 1); k++) {
+            putchar('*');
+        }
+        // Salto de línea para la siguiente fila
+        putchar('\n');
+    }
+}
+
+int main() {
+    int filas;
+
+    printf("Ingresa el número de filas para la pirámide: ");
+    scanf("%d", &filas);
+
+    imprimir_piramide(filas);
+
+    return 0;
+}
+```
+
+#### **Explicación:**
+- El programa primero imprime los espacios necesarios para centrar la pirámide.
+- Luego imprime los asteriscos utilizando `putchar('*')`.
+- Finalmente, se utiliza `putchar('\n')` para avanzar a la siguiente fila.
+
+### **Ejercicio 2: Contar y reemplazar vocales**
+Este ejercicio te ayudará a entender cómo usar `putchar()` para manipular y modificar caracteres. El programa contará cuántas vocales hay en la entrada y reemplazará las vocales por un asterisco (`*`).
+
+#### **Instrucciones:**
+1. Lee los caracteres de la entrada utilizando `getchar()`.
+2. Si el carácter es una vocal, reemplázala con un asterisco (`*`) usando `putchar()`.
+3. Imprime el número total de vocales encontradas.
+
+#### **Código de ejemplo:**
+
+```c
+#include <stdio.h>
+
+int es_vocal(char c) {
+    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
+            c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U');
+}
+
+int main() {
+    int c;
+    int contador_vocales = 0;
+
+    printf("Ingresa un texto (Ctrl+D para terminar):\n");
+
+    while ((c = getchar()) != EOF) {
+        if (es_vocal(c)) {
+            putchar('*');  // Reemplaza la vocal con un asterisco
+            contador_vocales++;
+        } else {
+            putchar(c);  // Imprime el carácter tal como se ingresó
+        }
+    }
+
+    printf("\nNúmero total de vocales: %d\n", contador_vocales);
+
+    return 0;
+}
+```
+
+#### **Explicación:**
+- La función `es_vocal()` verifica si un carácter es una vocal.
+- El programa reemplaza las vocales con `*` usando `putchar('*')` y cuenta cuántas vocales ha encontrado.
+- Todos los demás caracteres se imprimen tal como fueron ingresados.
+
+### **Resultados esperados:**
+
+1. **Ejercicio 1 (Pirámide de asteriscos):**
+   - Si el usuario ingresa `4`, el programa imprimirá:
+
+   ```
+      *
+     ***
+    *****
+   *******
+   ```
+
+2. **Ejercicio 2 (Reemplazo de vocales):**
+   - Si el usuario ingresa "Hola Mundo", el programa imprimirá:
+
+   ```
+   H*l* M*nd*
+   Número total de vocales: 4
+   ```
+
+Estos ejercicios te ayudarán a asimilar el uso básico de `putchar()` en la manipulación y salida de caracteres.
