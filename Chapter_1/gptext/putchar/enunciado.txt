@@ -46,7 +46,7 @@ int main() {
 
 ### **Ejercicio 2: Contar y reemplazar vocales**
 Este ejercicio te ayudará a entender cómo usar `putchar()` para manipular y modificar caracteres. El programa contará cuántas vocales hay en la entrada y reemplazará las vocales por un asterisco (`*`).
-
+.
 #### **Instrucciones:**
 1. Lee los caracteres de la entrada utilizando `getchar()`.
 2. Si el carácter es una vocal, reemplázala con un asterisco (`*`) usando `putchar()`.
@@ -63,7 +63,7 @@ int es_vocal(char c) {
 }
 
 int main() {
-    int c;
+    int c; 
     int contador_vocales = 0;
 
     printf("Ingresa un texto (Ctrl+D para terminar):\n");
