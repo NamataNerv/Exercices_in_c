@@ -109,3 +109,8 @@ int main() {
    ```
 
 Estos ejercicios te ayudarán a asimilar el uso básico de `putchar()` en la manipulación y salida de caracteres.
+
+
+
+
+
