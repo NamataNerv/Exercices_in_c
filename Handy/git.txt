@@ -1,90 +1,19 @@
-BBasso1: hola, como actualizo mi codigo de desde git
-
-    git pull origin main
-
-    Asegúrate de reemplazar `main` con la rama que estés utilizando si es diferente.
 
 
-
-BBasso1: como seteo git origin?
-
-
-    git remote add origin <URL-del-repositorio>
+git status
+git branch -l
+git branch -r
 
 
+git pull origin main
 
-    Para verificar que el origen remoto se ha configurado correctamente, puedes ejecutar:
-
-
-    git remote -v
-
-
-    Este comando mostrará una lista de los remotos configurados junto con sus URLs. Por ejemplo:
-
-
-    origin  https://github.com/usuario/nombre-del-repositorio.git (fetch)
-    origin  https://github.com/usuario/nombre-del-repositorio.git (push)
-
-
-BBasso1: como elimino un branch?
-
-
-    git branch -d nombre-de-la-rama
-
-
-Si la rama no ha sido fusionada y quieres forzar la eliminación, usa:
-
-
-    git branch -D nombre-de-la-rama
-
-
-Eliminar una rama remota
-
-    git push origin --delete nombre-de-la-rama
+git add .
+git commit -m "comentario"
 
 
 
-
-BBasso1: como subo mis cosas al github?
-
-
-    git add .
+###########################
 
 
-5. Realiza un commit con un mensaje descriptivo:
-
-
-    git commit -m "Descripción de los cambios"
-
-
-6. Sube los cambios al repositorio remoto en GitHub:
-
-    Nota en mi caso es solo 
-    
-    git push
-
-    git push origin nombre-de-la-rama
-
-
-Reemplaza `nombre-de-la-rama` con el nombre de la rama a la que quieres subir los cambios, por ejemplo, `main` o `master`.
-
-Si es la primera vez que subes una rama nueva, puedes usar:
-
-
-    git push -u origin nombre-de-la-rama
-
-
-Esto configurará la rama remota para que puedas usar simplemente `git push` en el futuro.
-
-
-
-
-BBasso1: como actualizo mi repositorio?(como le hago el pull)
-
-    git pull 
-    git pull origin nombre-de-la-rama
-
-
-Reemplaza `nombre-de-la-rama` con el nombre de la rama que deseas actualizar, por ejemplo, `main` o `master`.
-
-Este comando descargará y fusionará los cambios del repositorio remoto a tu copia local.
+deniss buk
+    3-5 indice

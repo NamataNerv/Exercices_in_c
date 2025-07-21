@@ -1,0 +1,18 @@
+Comandos para compilar en gcc:
+    gcc [archivo].c -o  [archivo] | /.archivo
+
+    > gcc hola.c -o hola
+    > ./hola
+
+
+
+linux 
+    Podria hacer que el nombre del archivo sea una variable de bash para luego usarla de una y no tener que esribir eso una y otra vez
+
+        progra="gcc main.c -o main && ./main"
+    Me da error y aun no se porque no funciona
+
+
+
+Make file
+    Se puede autamatizar procesos utilizando un makefile y de paso enlazar los codigos usados
