@@ -1,22 +1,14 @@
 #include<stdio.h>
+// Verificar que la exprecion getcahr()! = EOF es o o 1
 
 
 int main (){
 
-    float fahr,celcius;
-    int lower, upper , step;
-    lower=0;
-    upper=300;
-    step=20;
-
-    fahr=(float)lower;
-
-
-    while ((int)fahr<=upper) {
-        celcius= ((5)*(fahr-32))/9;
-        printf("%3.f \t %6.1f\n",fahr ,celcius);
-        fahr =fahr + (float)step;
-    }
-
-    return 1;
+    
+    
+    int alfa= getchar() != EOF;
+    printf("\nHola mundo %d \n", alfa);
+    
+    return 0;
 }
+// Es 0 o 1 dependiendo del valor de getchar asignado, si hagop ctrl d es 0, si escribo texto es 1

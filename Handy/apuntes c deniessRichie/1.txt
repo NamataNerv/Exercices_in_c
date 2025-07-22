@@ -91,3 +91,181 @@ Cambiio a float par ser mas preciso::
     }
 }
 
+
+    %d int
+    %3d int con 3 de espacio recerbado
+    %f float
+    %6.1f float con 6 de espacio reservado y mostrando solo un decimal
+    %f double
+    %ld long 
+
+Constantes simbolicas:: #define ::
+
+    Una mala practica es usar nomueros 'sueltos', como el 300 , 200 y 0 , sin asociarlos a algun significado , para evitar esta confucion se usan constantes simbolicas con el formato de:
+
+        #define [nombre_const] [value]
+        -> no existe punto y coma
+        -> Se usan mayusculas para falcil distincion
+Ejemplo de uso
+{
+    #include<stdio.h>
+    #define LOWER 0     // limite inferior
+    #define UPPER 300   // limite superior
+    #define STEP 20     // etc .....
+    /*Imprecion de tabla fahr-celcius*/
+    int main (){
+        int fahr;
+        for(fahr=LOWER;fahr<=UPPER;fahr=fahr+STEP){
+            printf("%3d \t %6.1f\n",fahr,(5.0/9.0)*((float)fahr-32));
+        }
+    }
+}
+
+Entrada y salida de caracteres::
+
+Stream (flujo de texto):
+    Son la entrada y salida de texto , 
+    Es una secuencia de 0 o mas caracteres divididos entre Líneas.
+    La biblioteca es responsable de que cada secuencia de entrada o salida encaje con el modelo.
+
+Biblioteca estandar:
+    proporciona 2 funciones
+        getchar() y putchar()
+
+    c = getchar()
+                -> Funcion de entrada, lee un solo caracter desde la entrada
+                -> Lo devuelve como un int para comparara valores como el de EOF
+                -> Si llega al final de la entrada(ctrl+d linux || ctrl+z windows ) devuelve un EOF 
+                -> La variable c contiene el siguiente caracter de entrada
+gcc hola.c -o trash
+./trash
+    - Deveeria hacer esto por ceparado o de lo contrario voy a mess up the streamflow 
+{
+
+    #include<stdio.h>
+    int main (){
+        int c; 
+        printf("Escribe un caracter : ");
+        c=getchar();
+        printf("Has escrito : ");
+        putchar(c);
+        printf("\n");
+        return 0;
+    }
+}
+
+    putchar(c)
+                -> Escribe un caracter cada vez que se invoca 
+                -> Escribe el contenido de la variable entera c como un caracter.
+                -> Generalmente impime en pantalla
+
+                -> toma un char o un int y lo imprime como caracter
+                -> equivale a printf("%c",c); pero mas simple y rapido
+{
+    #include<stdio.h>
+    int main (){
+        int c; 
+        printf("Escribe una frase (Ctrl + d para terminar): \n");
+
+        while ((c=getchar())!=EOF) {
+            putchar(c);
+        }
+
+        return 0;
+    }
+}
+
+    Conteo de caracteres
+{
+    #include<stdio.h>
+    
+
+
+
+    // Imprimir el numero de caracteres en pantala::
+
+    int main (){
+        long nc;
+        nc=0;
+        while (getchar() != EOF) {
+            ++nc;
+        }
+
+        printf("\n ES : %ld \n",nc);
+
+        return 0;
+    }
+}
+    -> ahora con double en vez de long  
+{
+    #include<stdio.h>
+    int main (){
+        double nc;
+        nc=0;
+
+        while (getchar()!= EOF) {
+            nc++;
+        }
+        printf("%0.f \n",nc);
+
+        return 0;
+    }    
+}
+
+
+long e int::
+    long e int se usan para reprecentar enteros
+    tamaνo de estos depende de la aquitectura 
+    donde trabajo:
+        int -> 4 bytes
+        long -> 8 bytes
+
+    Para imprimir en pantalla un long uso un %ld
+
+
+    Conteo de líneas
+        code::
+
+    Conteo de palabras
+        Combiene tener constantes simbolicas para mayor claridad, osea, tengo que ponerle un buen nombre a variables para que en el futuro cuando me ttoque escribirlas sea clara la aplicacion de esta
+        - Las asociasciones se realizan de izquierda a derecha
+        nl=nw=nc=0; 
+{
+
+    #include<stdio.h>
+
+    #define IN 1        // dentro de la palabra
+    #define OUT 0       // fuera de la palabra
+
+    // Cuenta lineas , palabras y caracteres de la entrada
+
+    int main (){
+        int c,nl,nw,nc,state;
+        state=OUT;
+        nl=nw=nc=0; 
+        while ((c=getchar())!=EOF) {
+            ++nc;
+            if(c =='\n')
+                ++nl;
+            if (c==' '|| c=='\n' ||c=='\t')
+                state= OUT;
+            else if (state==OUT){
+                state=IN;
+                nw++;
+            }
+        }   
+        printf("%d %d %d\n", nl,nw,nc);
+
+        return 0;
+    }
+}        
+        - el codigo anterior muestra un ejemplo de eso pd , se vienen 2 ejercicios
+
+
+Arreglos
+funciones
+Argumentos--llamadas por valor
+Arreglos de caracteres
+Variables externas y alcance
+
+Prollecto gpt final capitulo
