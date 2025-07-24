@@ -1,7 +1,7 @@
 // ¿Cómo probaría el program a para contar palabras? ¿Qué clase
 // de entrada es la más conveniente para descubrir errores si éstos existen?
 
-// R: Probaria con texto normal
+// R: Probaria con texto normal en la terminal , texto y saltos de linea
 
 #include<stdio.h>
 
