@@ -1,7 +1,7 @@
 Dado que estás leyendo el libro de C de K&R y estás en el primer capítulo, te sugiero un proyecto interesante y algo grande para poner en práctica los conceptos que estás aprendiendo. Aquí tienes una idea:
 
 ### Proyecto: **Calculadora Científica en Línea de Comandos**
-
+a
 #### Descripción:
 Desarrolla una calculadora científica en C que permita a los usuarios realizar diversas operaciones matemáticas, desde las más básicas (suma, resta, multiplicación, división) hasta operaciones más avanzadas como trigonometría, potencias, raíces, logaritmos, etc.
 
