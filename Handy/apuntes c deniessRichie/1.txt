@@ -303,11 +303,70 @@ Arreglos
 
 Ej 1-13 y 1-14
 
-Funciones
+1.7 Funciones
+
+{
+
+    #include<stdio.h>
+
+    int power(int m, int n); // Esta es una funcion prototipo, deve coincidir con su definicion
+    // podria ser int power (int, int); pero conbiene ponerle buenos nombres para documentacion fuura
 
 
-Argumentos--llamadas por valor
-Arreglos de caracteres
+    int main(){
+
+        int i;
+    
+
+        printf("Tabla de elevados:: \n");
+        for (i=0;i<10;++i) {
+            printf(" %d  %d  %d\n",i,power( 2, i),power(-3, i));
+        }
+    
+
+        return 0;
+    }
+
+    /*
+    int power(int base, int n){
+        int i, p;
+        p=1;
+
+        for (int i=1;i<n;i++) {
+            p=base*p;
+        }
+
+
+        return p;
+    }
+    */
+
+
+    // ojo esta recursividad
+    int power(int base, int n){
+
+        if(n==0){
+            return 1;
+        }
+        if (n==1)
+            return base;
+
+        return (base*power(base,n-1));
+    }
+
+}
+
+Ej 1-15
+
+
+1.8 Argumentos--llamadas por valor
+
+    - Resulta que en c se llaman los valores ,pero las variables creadas dentro o declaradas en la definicion de la funcion se  desintegran al terminar de eejecutarse.
+    - En fortran es distinto al parecer 
+
+1.9 Arreglos de caracteres
+    - Hola mundo
+
 Variables externas y alcance
 
 Prollecto gpt final capitulo
