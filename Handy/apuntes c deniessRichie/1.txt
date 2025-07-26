@@ -365,7 +365,15 @@ Ej 1-15
     - En fortran es distinto al parecer 
 
 1.9 Arreglos de caracteres
-    - Hola mundo
+    - Hola mundo`
+
+
+
+
+    - El string 'hola mundo' se compone de:
+        h o l a   m u n d o \n \0 
+    - El \0 marca el fin del string
+
 
 Variables externas y alcance
 
