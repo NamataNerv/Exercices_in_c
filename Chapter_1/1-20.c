@@ -8,69 +8,87 @@ n columnas. ¿Debe ser n una variable o un parámetro simbólico?
     Mejor codigo [ ]
     Mejor solucion [ ]
 */
-#include <stdio.h>
+#include<stdio.h>
+
+#define MAXLINE 1000 
+
+int getline(char line [], int maxline);
+void copy (char to [], char from[]);
 
 
-#define tabstop 4
-#define MAXLINE 1024
-
-/*
- End of file for print
- calculo de tabstop
-*/
-
-int getline(char line[]);
-int tab_stop(int number);
-
-int main(int argc, char* argv[]){
+int main(){
     int len;
-    char line [MAXLINE];
-    int c;
-    int total_line_char;
-    int i=0;
-    while ((c=getchar())!=EOF) {
-        line[i]=c;
-        i++;
-        total_line_char=i;
-        if (c=='\n') {
-            for(int j=0;j<i;j++){
-                if(line[j]=='\t'){
-                    int n=4-j%tabstop;
-                    printf("::%d::",n);
-                    switch (n) {
-                        case 0:
-                            break;
-                        case 1:
-                            line[j]=' ';
-                            break; 
-                        case 2:
-                            line[j]=' ';
-                            j++;
-                            i++;
-                            line[j]=' ';
-                            break;
-                        case 3:
-                            line[j]=' ';
-                            j++;
-                            i++;
-                            line[j]=' ';
-                            j++;
-                            i++;
-                            line[j]=' ';
-                            break;
-                    }
-                }
-            }
-            line[total_line_char]='\0';
-            i=0;
-            total_line_char=0;
-            printf("%s",line);
+    int max;
+    char line[MAXLINE];
+    char longest[MAXLINE];
+
+    max=0;
+    while (((len=getline( line,MAXLINE))>0)) {
+        //printf("len:: %d\n",len);
+        if (len>max) {
+            max=len;
+            
+            copy(longest,line);
         }
+    }    
+    
+    if(max>0){  
+        //printf("%s",longest);
     }
 
-
-
+    //putchar('x');
     return 0;
+}
+
+
+// lee una linea s, regresa su longitud
+int getline(char s [], int lim){
+    int c,i, low, dec;
+    dec=0;
+    for(i=0;i<lim-1 && (c=getchar()) != EOF && c!= '\n'; ++i ){
+        s[i]=c;
+    }
+    if (c=='\n') {
+        s[i]=c;
+        i++;
+    }  
+    s[i]='\0';
+    
+    if (s[i-2]==' ' || s[i-2]=='\t'){
+        
+        low=i;
+        low=low-2;
+        // detectar until i get a character or point or any ascci caracter 
+        for(; low>=0 && (s[low]== '\t' ||s[low]== ' ' || !(s[low]>33&&s[low]<126));--low){
+            s[low]='\0';
+            if(low==0 ){
+                return 1;
+            }
+        }
+        
+        low++;
+        s[low]='\n';
+        low++;
+        s[low]='\0';
+        dec=i-low;
+    }
+    
+
+
+
+
+    return i-dec;
+}
+
+// Copy copia from en to , supone que es lo suficientemente grande
+void copy (char to [], char from[]){
+    int i;
+    i=0;
+    while ((to[i]=from[i])!='\0') {
+        i++;
+      //  printf(" :: si ::");
+    }
+    //putchar('\n');
 }
 
 
