@@ -366,7 +366,64 @@ Ej 1-15
 
 1.9 Arreglos de caracteres
     - Hola mundo`
+{
 
+        #include<stdio.h>
+
+    #define MAXLINE 1000 // tmaño maximo  de la linea de entrada
+
+    int getline(char line [], int maxline);
+    void copy (char to [], char from[]);
+
+
+    // se imprime la linea de entrada mas larga
+    int main(){
+        int len;
+        int max;
+        char line[MAXLINE];
+        char longest[MAXLINE];
+
+        max=0;
+        while ((len=getline( line,MAXLINE)>0)) {
+            if (len>max) {
+                max=len;
+                copy(longest,line);
+            }
+        }    
+        if(max>0){  // hubo una linea grande 
+            printf("%s",longest);
+        }
+
+
+        return 0;
+    }
+
+
+    // lee una linea s, regresa su longitud
+    int getline(char s [], int lim){
+        int c,i;
+        for(i=0;i<lim-1 && (c=getchar()) != EOF && c!= '\n'; ++i ){
+            s[i]=c;
+        }
+        if (c=='\n') {
+            s[i]=c;
+            i++;
+        }  
+        s[i]='\0'; 
+        return i;
+    }
+
+    // Copy copia from en to , supone que es lo suficientemente grande
+    void copy (char to [], char from[]){
+        int i;
+        i=0;
+        while ((to[i]=from[i])!='\n') {
+            i++;
+        }
+        i++;
+        to[i]='\0'; // esto es para que me corte el string sin poner mierda
+    }
+}
 
 
 
@@ -375,6 +432,29 @@ Ej 1-15
     - El \0 marca el fin del string
 
 
-Variables externas y alcance
 
-Prollecto gpt final capitulo
+Ejercicio 1-16. Corrija la rutina principal del programa de la línea más larga de 
+modo que imprima correctamente la longitud de líneas de entrada arbitrariamen
+ te largas, y tanto texto como sea posible. □ mal ,no entendi
+Ejercicio 1-17. Escriba un programa que imprima todas las líneas de entrada que 
+sean mayores de 80 caracteres. □
+Ejercicio 1-18. Escriba un programa que elimine los blancos y los tabuladores 
+que estén al final de cada línea de entrada, y que borre completamente las líneas 
+en blanco. □
+Ejercicio 1-19. Escriba una función reverse(s) que invierta la cadena de caracte
+ res s. Usela para escribir un programa que invierta su entrada, línea a línea. □
+
+
+Variables externas y alcance
+    - Declaracion de variable:
+        int a ;
+    - Definicion de variable:
+        a = 12;
+
+
+todo a extern 
+
+extern es peligroso, conexion entre datos no completamente obvias
+
+
+Proyecto gpt final capitulo
